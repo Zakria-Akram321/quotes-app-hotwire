@@ -1,0 +1,25 @@
+<%= turbo_frame_tag dom_id(quote) do %>
+  <div class="flex justify-between items-center bg-slate-700 px-5 py-4 shadow-md rounded-lg text-white my-3">
+    <div>
+      <%= link_to quote.quote, 
+                  quote_path(quote),
+                  data: { turbo_frame: "_top" } %>
+                
+    </div>
+    <div class="flex gap-2">
+      <%= button_to quote_path(quote), 
+                  method: :delete, 
+                  class:"bg-[#df5034] px-2 py-2 shadow-md rounded-md flex items-center" do %>
+        <span class="material-symbols-outlined">
+          delete
+        </span>
+      <%end%>
+      <%= link_to edit_quote_path(quote), class:"bg-[#df5034] px-2 py-2 shadow-md rounded-md flex items-center" do %>
+        <span class="material-symbols-outlined">
+          edit
+        </span>
+      <%end%>
+    </div>
+  </div>
+
+<%end%>

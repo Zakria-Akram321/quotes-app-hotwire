@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= turbo_frame_tag "quotes" do %>
+  <div class="flex justify-between">
+    <h1 class="text-4xl font-semibold">Quotes</h1>
+    <%= link_to "Add quotes", 
+                new_quote_path, 
+                data: {turbo_frame: "new_quote"},
+                class:"bg-[#df5034] px-7 py-3 text-white font-semibold capitalize inline-block rounded-lg" %>
+  </div>
+<%end%>
+<hr class="my-4">
+
+<%= turbo_frame_tag "new_quote" %>
+
+<%= turbo_frame_tag "all-quotes" do %>
+    <%= render @quotes %>
+<%end%>

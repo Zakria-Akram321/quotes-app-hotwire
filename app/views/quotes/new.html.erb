@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "new_quote" do %>
+  <div class="bg-slate-700 px-5 py-4 shadow-md rounded-lg">
+    <h1 class="font-xl font-semibold mb-3 text-white">New quote</h1>
+    <%= render "form", quote: @quote %>
+  </div>
+<%end %>
+<br>
+
+<div>
+  <%= link_to "Back to quotes", quotes_path %>
+</div>
