@@ -14,7 +14,12 @@
 
 <%= turbo_stream_from "all_quotes" %>
 
-<%= turbo_frame_tag "new_quote" %>
+<%= turbo_frame_tag Quote.new do %>
+    <% if @quotes.none? %>
+      <%= render "quotes/empty_state" %>
+    <% end %>
+  <% end %>
+<%#= turbo_frame_tag "new_quote" %>
 
 <%= turbo_frame_tag "all_quotes" do %>
     <%= render @quotes %>
