@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 
-<%= turbo_frame_tag "x" do %>
+<%= turbo_frame_tag "quotes" do %>
   <div class="flex justify-between">
     <h1 class="text-4xl font-semibold">Quotes</h1>
     <%= link_to "Add quotes", 
@@ -14,12 +14,7 @@
 
 <%= turbo_stream_from "all_quotes" %>
 
-<%= turbo_frame_tag Quote.new do %>
-    <% if @quotes.none? %>
-      <%= render "quotes/empty_state" %>
-    <% end %>
-  <% end %>
-<%#= turbo_frame_tag "new_quote" %>
+<%= turbo_frame_tag "new_quote" %>
 
 <%= turbo_frame_tag "all_quotes" do %>
     <%= render @quotes %>

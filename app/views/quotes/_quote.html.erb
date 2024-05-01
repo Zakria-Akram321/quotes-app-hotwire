@@ -2,7 +2,8 @@
   <div class="flex justify-between items-center bg-slate-700 px-5 py-4 shadow-md rounded-lg text-white my-3">
     <div>
       <%= link_to quote.quote, 
-                  quote_path(quote) %>
+                  quote_path(quote),
+                  data: { turbo_frame: "_top" } %>
                 
     </div>
     <div class="flex gap-2">
