@@ -1,0 +1,20 @@
+<header class="bg-slate-700 py-3">
+  <div class="max-w-[80%] mx-auto flex justify-end items-center gap-3">
+    <% if user_signed_in? %>
+      <div class="font-semibold text-white font-lg">
+        <%= current_company.name %>
+      </div>
+      <div class="font-semibold text-white font-lg">
+        <%= current_user.name %>
+      </div>
+      <%= button_to "Sign out",
+                    destroy_user_session_path,
+                    method: :delete,
+                    class: "bg-red-700 px-7 py-3 text-white font-semibold capitalize inline-block rounded-lg" %>
+    <% else %>
+      <%= link_to "Sign in",
+                  new_user_session_path,
+                  class: "bg-[#df5034] px-8 py-2 text-white font-semibold capitalize inline-block rounded-lg" %>
+    <% end %>
+  </div>
+</header>
