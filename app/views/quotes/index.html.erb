@@ -12,7 +12,7 @@
 <%end%>
 <hr class="my-4">
 
-<%= turbo_stream_from "all_quotes" %>
+<%= turbo_stream_from current_company, "all_quotes" %>
 
 <%= turbo_frame_tag "new_quote" %>
 
