@@ -24,6 +24,7 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = current_company.quotes.build(quote_params)
+    sleep(10)
 
     respond_to do |format|
       if @quote.save
