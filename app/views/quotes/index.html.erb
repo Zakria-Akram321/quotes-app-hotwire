@@ -1,5 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
+<div class="my-3" data-controller="hello">
+  <input type="text" data-hello-target="names" placeholder="Enter your name...." />
+  <button data-action="click->hello#greet">Greet</button>
+</div>
+
+<div class="my-3" data-controller="copy">
+  PIN: <input type="text" data-copy-target="source" value="1234" readonly>
+  <button data-action="copy#copyToClipboard">Copy to Clipboard</button>
+</div>
+
+<div data-controller="slideshow" data-slideshow-index-value="0" class="my-3">
+  <%# <div> %>
+    <button data-action="slideshow#prev" data-slideshow-target="btn"> ← </button>
+    <button data-action="slideshow#next" data-slideshow-target="btn"> → </button>
+  <%# </div> %>
+
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 1</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 2</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 3</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 4</div>
+
+  <div data-slideshow-target="totalSlides"></div>
+</div>
+
 
 <%= turbo_frame_tag "quotes" do %>
   <div class="flex justify-between">
