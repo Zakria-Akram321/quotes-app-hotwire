@@ -9,7 +9,7 @@ class QuotesController < ApplicationController
   # GET /quotes/1 or /quotes/1.json
   def show
     # debugger
-    @line_item_dates = @quote.line_item_dates
+    @line_item_dates = @quote.line_item_dates.includes(:line_items)
   end
 
   # GET /quotes/new

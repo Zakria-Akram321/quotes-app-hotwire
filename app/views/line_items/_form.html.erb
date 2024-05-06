@@ -1,0 +1,31 @@
+<%= form_with model: [quote, line_item_date, line_item], class:"my-3 shadow-md p-2 rounded-md" do |form| %>
+  <% if line_item_date.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(line_item_date.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+        <% quote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.date_field :name, class:"w-full rounded-md" %>
+  </div>
+  <div>
+    <%= form.number_field :quantity, class:"w-full rounded-md" %>
+  </div>
+  <div>
+    <%= form.number_field :unit_price, class:"w-full rounded-md" %>
+  </div>
+  <div>
+    <%= form.date_field :description, class:"w-full rounded-md" %>
+  </div>
+
+  <div class="flex gap-3">
+    <%= form.submit :submit, class:"bg-[#df5034] px-5 py-2 text-white font-semibold capitalize inline-block rounded-md mt-3 cursor-pointer" %>
+    <%= link_to "Cancel", quote_path(@quote), class: "bg-red-700 px-5 py-2 text-white font-semibold capitalize inline-block rounded-md mt-3 cursor-pointer" %>
+  </div>
+<% end %>
