@@ -10,14 +10,18 @@
   <button data-action="copy#copyToClipboard">Copy to Clipboard</button>
 </div>
 
-<div data-controller="slideshow" class="my-3">
-  <button data-action="slideshow#prev"> ← </button>
-  <button data-action="slideshow#next"> → </button>
+<div data-controller="slideshow" data-slideshow-index-value="0" class="my-3">
+  <%# <div> %>
+    <button data-action="slideshow#prev" data-slideshow-target="btn"> ← </button>
+    <button data-action="slideshow#next" data-slideshow-target="btn"> → </button>
+  <%# </div> %>
 
-  <div data-slideshow-target="slide">🐵</div>
-  <div data-slideshow-target="slide">🙈</div>
-  <div data-slideshow-target="slide">🙉</div>
-  <div data-slideshow-target="slide">🙊</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 1</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 2</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 3</div>
+  <div data-slideshow-target="slide" class="py-7 border-[1px] text-center">Slide 4</div>
+
+  <div data-slideshow-target="totalSlides"></div>
 </div>
 
 
