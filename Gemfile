@@ -77,3 +77,5 @@ gem 'hotwire-rails'
 gem "tailwindcss-rails", "~> 2.5"
 
 gem "devise", "~> 4.9"
+
+gem 'sidekiq', '~> 7.2', '>= 7.2.4'

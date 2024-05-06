@@ -1,0 +1,6 @@
+<%= turbo_stream.update dom_id(LineItem.new, @line_item_date), "" %>
+
+<%# Step 2: append the created line item to the list %>
+<%= turbo_stream.append nested_dom_id(LineItem.new, @line_item_date) do %>
+  <%= render @line_item, quote: @quote, line_item_date: @line_item_date %>
+<% end %>
