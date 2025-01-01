@@ -25,9 +25,8 @@ class QuotesController < ApplicationController
 
     respond_to do |format|
       if @quote.save
-        format.html { redirect_to quote_url(@quote), notice: "Quote was successfully created." }
+        format.html { redirect_to @quote, notice: "Quote was successfully created." }
         format.turbo_stream
-        format.json { render :show, status: :created, location: @quote }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @quote.errors, status: :unprocessable_entity }
@@ -39,8 +38,8 @@ class QuotesController < ApplicationController
   def update
     respond_to do |format|
       if @quote.update(quote_params)
-        format.html { redirect_to quote_url(@quote), notice: "Quote was successfully updated." }
-        format.json { render :show, status: :ok, location: @quote }
+        format.turbo_stream
+        format.html { redirect_to @quote }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @quote.errors, status: :unprocessable_entity }
@@ -53,9 +52,8 @@ class QuotesController < ApplicationController
     @quote.destroy
 
     respond_to do |format|
-      format.html { redirect_to quotes_url, notice: "Quote was successfully destroyed." }
+      format.html { redirect_to quotes_path, status: :see_other, notice: "Quote was successfully destroyed." }
       format.turbo_stream
-      format.json { head :no_content }
     end
   end
 
